@@ -42,15 +42,15 @@
 
         internal static string ToCamelCase(string str)
         {
-            var listOfStrings = str.Split('-', '_');
-            foreach (var x in listOfStrings)
+            // solution I was hoping for https://www.codewars.com/kata/reviews/56a1b59095c3754fe3000076/groups/56a4eea88cf57eb68900004f
+            var words = str.Split('_', '-').ToList();
+            var newString = words.First();
+            foreach (var word in words.GetRange(1, words.Count - 1))
             {
-                var listOfChars = x.ToCharArray();
-                listOfChars[0] = char.ToUpper(listOfChars[0]);
-                var listOfUpperStrings = listOfChars.ToString();
+                newString = string.Concat(newString, word[0].ToString().ToUpper() + word.Substring(1));
             }
 
-            return string.Concat(listOfStrings);
+            return newString;
         }
     }
 }
