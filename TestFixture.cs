@@ -60,5 +60,14 @@
         {
             Assert.AreEqual(expected, Methods.MinMax(inputs));
         }
+
+        [TestCase("TTTT", "AAAA")]
+        [TestCase("TAACG", "ATTGC")]
+        [TestCase("CATA", "GTAT")]
+        //https://www.codewars.com/kata/complementary-dna/train/csharp
+        public void MakeComplement_Test(string dna, string expected)
+        {
+            Assert.AreEqual(expected, Methods.MakeComplement(dna));
+        }
     }
 }

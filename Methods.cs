@@ -1,4 +1,4 @@
-namespace CodeWarsCore
+﻿namespace CodeWarsCore
 {
     using System;
     using System.Collections.Generic;
@@ -57,4 +57,10 @@ namespace CodeWarsCore
         {
             return new[]{lst.Min(), lst.Max()};
         }
+
+        internal static string MakeComplement(string dna)
+        {
+            return string.Concat(dna.ToCharArray().Select(s => s == 'A' ? 'T' : s == 'C' ? 'G' : s == 'G' ? 'C' : s == 'T' ? 'A' : ' '));
+        }
+    }
 }
