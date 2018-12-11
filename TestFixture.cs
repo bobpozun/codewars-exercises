@@ -49,5 +49,16 @@
         {
             Assert.AreEqual(expected, Methods.ToCamelCase(str));
         }
+
+        [Test]
+        [TestCase(new [] {1, 2, 5, -1, 12, 20}, new [] { -1, 20 })]
+        [TestCase(new [] {1, 2, 3, 4, 5}, new [] {1, 5})]
+        [TestCase(new [] {1, 2, -3,  4,  5}, new [] { -3, 5 })]
+
+        // https://www.codewars.com/kata/559590633066759614000063/train/csharp
+        public void MinMax_Test(int[] inputs, int[] expected)
+        {
+            Assert.AreEqual(expected, Methods.MinMax(inputs));
+        }
     }
 }

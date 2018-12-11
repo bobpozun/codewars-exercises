@@ -1,4 +1,4 @@
-﻿namespace CodeWarsCore
+namespace CodeWarsCore
 {
     using System;
     using System.Collections.Generic;
@@ -52,5 +52,9 @@
 
             return newString;
         }
-    }
+
+        internal static int[] MinMax(int[] lst)
+        {
+            return new[]{lst.Min(), lst.Max()};
+        }
 }
