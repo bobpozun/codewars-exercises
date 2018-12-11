@@ -62,5 +62,11 @@
         {
             return string.Concat(dna.ToCharArray().Select(s => s == 'A' ? 'T' : s == 'C' ? 'G' : s == 'G' ? 'C' : s == 'T' ? 'A' : ' '));
         }
+
+        internal static string ConsecutiveStrings(string[] strarr, int k)
+        {
+            var ordered = strarr.OrderBy(str => str.Length);
+            return string.Concat(ordered.Take(k));
+        }
     }
 }

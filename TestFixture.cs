@@ -69,5 +69,20 @@
         {
             Assert.AreEqual(expected, Methods.MakeComplement(dna));
         }
+
+        [TestCase(new string[] { "zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail" }, 2, "abigailtheta")]
+        [TestCase(new string[] { "ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh" }, 1, "oocccffuucccjjjkkkjyyyeehh")]
+        [TestCase(new string[] { }, 3, "")]
+        [TestCase(new string[] { "itvayloxrp", "wkppqsztdkmvcuwvereiupccauycnjutlv", "vweqilsfytihvrzlaodfixoyxvyuyvgpck" }, 2, "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")]
+        [TestCase(new string[] { "wlwsasphmxx", "owiaxujylentrklctozmymu", "wpgozvxxiu" }, 2, "wlwsasphmxxowiaxujylentrklctozmymu")]
+        [TestCase(new string[] { "zone", "abigail", "theta", "form", "libe", "zas" }, -2, "")]
+        [TestCase(new string[] { "it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz" }, 3, "ixoyx3452zzzzzzzzzzzz")]
+        [TestCase(new string[] { "it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz" }, 15, "")]
+        [TestCase(new string[] { "it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz" }, 0, "")]
+        //https://www.codewars.com/kata/consecutive-strings/train/csharp
+        public void ConsecutiveStrings_Test(string[] strarr, int k, string expected)
+        {
+            Assert.AreEqual(expected, Methods.ConsecutiveStrings(strarr, k));
+        }
     }
 }
