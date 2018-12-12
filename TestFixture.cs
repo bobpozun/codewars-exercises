@@ -28,19 +28,6 @@
         }
 
         [Test]
-        [TestCase(155, -1)]
-        [TestCase(121, 144)]
-        [TestCase(625, 676)]
-        [TestCase(319225, 320356)]
-        [TestCase(15241383936, 15241630849)]
-
-        // https://www.codewars.com/kata/find-the-next-perfect-square
-        public void PerfectSquareRefactor_Test(long num, long expected)
-        {
-            Assert.That(Methods.PerfectSquareRefactor(num), Is.EqualTo(expected));
-        }
-
-        [Test]
         [TestCase("the_stealth_warrior", "theStealthWarrior")]
         [TestCase("The-Stealth-Warrior", "TheStealthWarrior")]
 

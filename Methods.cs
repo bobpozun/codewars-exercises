@@ -27,6 +27,7 @@
 
         internal static long PerfectSquare(long num)
         {
+            // Clean solution https://www.codewars.com/kata/reviews/56b3b92231701df3eb000017/groups/56c1d28be0c0f71457000cb7
             var sqrt = Math.Sqrt(num);
             if (sqrt % 1 != 0)
                 return -1;
@@ -35,14 +36,10 @@
             return (long)(next * next);
         }
 
-        internal static long PerfectSquareRefactor(long num)
-        {
-            return Math.Sqrt(num) % 1 == 0? (long)Math.Pow(Math.Sqrt(num) + 1, 2) : -1;
-        }
 
         internal static string ToCamelCase(string str)
         {
-            // solution I was hoping for https://www.codewars.com/kata/reviews/56a1b59095c3754fe3000076/groups/56a4eea88cf57eb68900004f
+            // Clean solution https://www.codewars.com/kata/reviews/56a1b59095c3754fe3000076/groups/56a4eea88cf57eb68900004f
             var words = str.Split('_', '-').ToList();
             var newString = words.First();
             foreach (var word in words.GetRange(1, words.Count - 1))
@@ -65,7 +62,7 @@
 
         internal static int VowelCount(string str)
         {
-            //Cleaner solution https://www.codewars.com/kata/reviews/553a90b3f3cc94c58c00015e/groups/553cf798d6665dee600000ce
+            //Clean solution https://www.codewars.com/kata/reviews/553a90b3f3cc94c58c00015e/groups/553cf798d6665dee600000ce
             return str.Count(x => x.Equals('a') || x.Equals('e') || x.Equals('i') || x.Equals('o') || x.Equals('u'));
         }
     }
