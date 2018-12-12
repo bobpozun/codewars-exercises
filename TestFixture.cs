@@ -69,5 +69,12 @@
         {
             Assert.AreEqual(expected, Methods.MakeComplement(dna));
         }
+
+        [TestCase("abracadabra", 5)]
+        //https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/csharp
+        public void VowelCount_Test(string str, int expected)
+        {
+            Assert.AreEqual(expected, Methods.VowelCount(str));
+        }
     }
 }

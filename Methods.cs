@@ -62,5 +62,11 @@
         {
             return string.Concat(dna.ToCharArray().Select(s => s == 'A' ? 'T' : s == 'C' ? 'G' : s == 'G' ? 'C' : s == 'T' ? 'A' : ' '));
         }
+
+        internal static int VowelCount(string str)
+        {
+            //Cleaner solution https://www.codewars.com/kata/reviews/553a90b3f3cc94c58c00015e/groups/553cf798d6665dee600000ce
+            return str.Count(x => x.Equals('a') || x.Equals('e') || x.Equals('i') || x.Equals('o') || x.Equals('u'));
+        }
     }
 }
