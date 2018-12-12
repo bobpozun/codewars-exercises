@@ -5,6 +5,24 @@
     [TestFixture]
     public class TestFixture
     {
+        [TestCase("TTTT", "AAAA")]
+        [TestCase("TAACG", "ATTGC")]
+        [TestCase("CATA", "GTAT")]
+
+        //https://www.codewars.com/kata/complementary-dna/train/csharp
+        public void MakeComplement_Test(string dna, string expected)
+        {
+            Assert.AreEqual(expected, Methods.MakeComplement(dna));
+        }
+
+        [TestCase("abracadabra", 5)]
+
+        //https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/csharp
+        public void VowelCount_Test(string str, int expected)
+        {
+            Assert.AreEqual(expected, Methods.VowelCount(str));
+        }
+
         [Test]
         [TestCase(16, 7)]
 
@@ -12,6 +30,17 @@
         public void DigitalRoot_Test(long n, int expected)
         {
             Assert.That(Methods.DigitalRoot(n), Is.EqualTo(expected));
+        }
+
+        [Test]
+        [TestCase(new[] { 1, 2, 5, -1, 12, 20 }, new[] { -1, 20 })]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, new[] { 1, 5 })]
+        [TestCase(new[] { 1, 2, -3, 4, 5 }, new[] { -3, 5 })]
+
+        // https://www.codewars.com/kata/559590633066759614000063/train/csharp
+        public void MinMax_Test(int[] inputs, int[] expected)
+        {
+            Assert.AreEqual(expected, Methods.MinMax(inputs));
         }
 
         [Test]
@@ -35,33 +64,6 @@
         public void ToCamelCase_Test(string str, string expected)
         {
             Assert.AreEqual(expected, Methods.ToCamelCase(str));
-        }
-
-        [Test]
-        [TestCase(new [] {1, 2, 5, -1, 12, 20}, new [] { -1, 20 })]
-        [TestCase(new [] {1, 2, 3, 4, 5}, new [] {1, 5})]
-        [TestCase(new [] {1, 2, -3,  4,  5}, new [] { -3, 5 })]
-
-        // https://www.codewars.com/kata/559590633066759614000063/train/csharp
-        public void MinMax_Test(int[] inputs, int[] expected)
-        {
-            Assert.AreEqual(expected, Methods.MinMax(inputs));
-        }
-
-        [TestCase("TTTT", "AAAA")]
-        [TestCase("TAACG", "ATTGC")]
-        [TestCase("CATA", "GTAT")]
-        //https://www.codewars.com/kata/complementary-dna/train/csharp
-        public void MakeComplement_Test(string dna, string expected)
-        {
-            Assert.AreEqual(expected, Methods.MakeComplement(dna));
-        }
-
-        [TestCase("abracadabra", 5)]
-        //https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/csharp
-        public void VowelCount_Test(string str, int expected)
-        {
-            Assert.AreEqual(expected, Methods.VowelCount(str));
         }
     }
 }

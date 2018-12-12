@@ -36,28 +36,37 @@
             return (long)(next * next);
         }
 
-
         internal static string ToCamelCase(string str)
         {
             // Clean solution https://www.codewars.com/kata/reviews/56a1b59095c3754fe3000076/groups/56a4eea88cf57eb68900004f
-            var words = str.Split('_', '-').ToList();
+            var words = str.Split('_', '-').
+                            ToList();
             var newString = words.First();
             foreach (var word in words.GetRange(1, words.Count - 1))
-            {
-                newString = string.Concat(newString, word[0].ToString().ToUpper() + word.Substring(1));
-            }
+                newString = string.Concat(newString, word[0].
+                                                     ToString().
+                                                     ToUpper() + word.Substring(1));
 
             return newString;
         }
 
         internal static int[] MinMax(int[] lst)
         {
-            return new[]{lst.Min(), lst.Max()};
+            return new[] { lst.Min(), lst.Max() };
         }
 
         internal static string MakeComplement(string dna)
         {
-            return string.Concat(dna.ToCharArray().Select(s => s == 'A' ? 'T' : s == 'C' ? 'G' : s == 'G' ? 'C' : s == 'T' ? 'A' : ' '));
+            return string.Concat(dna.ToCharArray().
+                                     Select(s => s == 'A'?
+                                                'T' :
+                                                s == 'C'?
+                                                    'G' :
+                                                    s == 'G'?
+                                                        'C' :
+                                                        s == 'T'?
+                                                            'A' :
+                                                            ' '));
         }
 
         internal static int VowelCount(string str)
