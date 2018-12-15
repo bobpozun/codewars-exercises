@@ -1,5 +1,7 @@
 ﻿namespace CodeWarsCore
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using NUnit.Framework;
 
     [TestFixture]
@@ -64,6 +66,49 @@
         public void ToCamelCase_Test(string str, string expected)
         {
             Assert.AreEqual(expected, Methods.ToCamelCase(str));
+        }
+
+        [TestCase(new[] { 1, 2, 2, 2 }, 1)]
+        [TestCase(new[] { -2, 2, 2, 2 }, -2)]
+        [TestCase(new[] { 11, 11, 14, 11, 11 }, 14)]
+        [TestCase(new[] { 11, 11, 11, 11, 1}, 1)]
+
+        //https://www.codewars.com/kata/find-the-unique-number-1/train/csharp
+        public void UniqueNumber_Test(int[] numbers, int expected)
+        {
+            Assert.AreEqual(expected, Methods.UniqueNumber(numbers));
+        }
+
+        [TestCase("test", "es")]
+        [TestCase("testing", "t")]
+        [TestCase("middle", "dd")]
+        [TestCase("A", "A")]
+
+        //https://www.codewars.com/kata/get-the-middle-character/train/csharp
+        public void MiddleCharacter_Test(string s, string expected)
+        {
+            Assert.AreEqual(expected, Methods.MiddleCharacter(s));
+        }
+
+
+        [TestCase(new double[] { 2, 3, 1}, 0)]
+        [TestCase(new double[] { 5, 10, 14 }, 1)]
+
+        //https://www.codewars.com/kata/find-the-middle-element/train/csharp
+        public void MiddleElement_Test(double[] inputArray, int expected)
+        {
+            Assert.AreEqual(expected, Methods.MiddleElement(inputArray));
+        }
+
+
+        [TestCase(3.0, 0.66, 1.5, 3)]
+        [TestCase(30.0, 0.66, 1.5, 15)]
+
+        //https://www.codewars.com/kata/bouncing-balls/train/csharp
+        public void BouncingBall_Test(double h, double bounce, double window, int expected)
+        {
+            Assert.AreEqual(expected, Methods.BouncingBall(h, bounce, window));
+
         }
     }
 }

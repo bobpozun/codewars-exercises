@@ -74,5 +74,38 @@
             //Clean solution https://www.codewars.com/kata/reviews/553a90b3f3cc94c58c00015e/groups/553cf798d6665dee600000ce
             return str.Count(x => x.Equals('a') || x.Equals('e') || x.Equals('i') || x.Equals('o') || x.Equals('u'));
         }
+
+        internal static int UniqueNumber(IEnumerable<int> numbers)
+        {
+             return numbers.GroupBy(p => p).Single(q => q.Count() == 1).Key;
+        }
+
+        internal static string MiddleCharacter(string s)
+        {
+            return s.Substring((s.Length % 2 == 0) ? s.Length / 2 - 1 : s.Length / 2, (s.Length % 2 == 0) ? 2 : 1);
+        }
+
+        internal static int MiddleElement(double[] inputArray)
+        {
+            return Array.IndexOf(inputArray, inputArray.OrderBy(x => x).ElementAt(1));
+        }
+
+        internal static int BouncingBall(double h, double bounce, double window)
+        {
+            // Clean solution https://www.codewars.com/kata/reviews/5545df260240a709a20000aa/groups/555af4f664ed2d521300000e
+            var views = -1;
+            if (h > 0 && bounce > 0 && bounce < 1 && window < h)
+            {
+                views = 0;
+                while (h > window)
+                {
+                    views += 1;
+                    h = h * bounce;
+                    if (h > window)
+                        views += 1;
+                }
+            }
+            return views;
+        }
     }
 }
