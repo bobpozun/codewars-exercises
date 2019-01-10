@@ -165,5 +165,10 @@
         {
             return fct(s);
         }
+
+        internal static bool IsAnagram(string test, string original)
+        {
+            return string.Concat(test.ToLower().OrderBy(c => c)) == string.Concat(original.ToLower().OrderBy(s => s));
+        }
     }
 }

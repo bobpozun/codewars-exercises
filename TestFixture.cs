@@ -146,7 +146,6 @@
         [TestCase("hor", "lVHt\nJVhv\nCSbg\nyeCt", "yeCt\nCSbg\nJVhv\nlVHt")]
         [TestCase("hor", "njMK\ndbrZ\nLPKo\ncEYz", "cEYz\nLPKo\ndbrZ\nnjMK")]
 
-
         //https://www.codewars.com/kata/moves-in-squared-strings-i/train/csharp
         public void Mirrors_Test(string type, string str, string expected)
         {
@@ -154,6 +153,25 @@
                 Assert.AreEqual(expected, Methods.Mirror(Methods.VertMirror, str));
             if (type == "hor")
                 Assert.AreEqual(expected, Methods.Mirror(Methods.HorMirror, str));
+        }
+
+
+        [TestCase("foefet", "toffee", true)]
+        [TestCase("Buckethead", "DeathCubeK", true)]
+        [TestCase("Twoo", "Woot", true)]
+        [TestCase("apple", "pale", false)]
+
+        //https://www.codewars.com/kata/anagram-detection/train/csharp
+        public void Anagram_Test(string test, string original, bool expected)
+        {
+            Assert.That(Methods.IsAnagram(test, original), Is.EqualTo(expected));
+        }
+
+        [TestCase()]
+
+        //https://www.codewars.com/kata/
+        public void Template_Test()
+        {
         }
     }
 }
