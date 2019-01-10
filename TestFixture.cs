@@ -1,5 +1,6 @@
 ﻿namespace CodeWarsCore
 {
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using NUnit.Framework;
@@ -108,7 +109,51 @@
         public void BouncingBall_Test(double h, double bounce, double window, int expected)
         {
             Assert.AreEqual(expected, Methods.BouncingBall(h, bounce, window));
+        }
 
+        [TestCase(5750, 0, 4700)]
+        [TestCase(11011, 2, 9481)]
+        [TestCase(12224, 8, 7733)]
+        [TestCase(11549, 1, 11905)]
+
+        //https://www.codewars.com/kata/566fc12495810954b1000030/train/csharp
+        public void CountTheDigit_Test(int n, int d, int expected)
+        {
+            Assert.AreEqual(expected, Methods.CountTheDigit(n, d));
+        }
+
+        [TestCase(new []{ 1, 2 }, "yes, ascending")]
+        [TestCase(new []{ 15, 7, 3 }, "yes, descending")]
+        [TestCase(new []{ 4, 2, 30 }, "no")]
+
+        //https://www.codewars.com/kata/580a4734d6df748060000045/train/csharp
+        public void IsSortedAndHow_Test(int[] array, string expected)
+        {
+            Assert.AreEqual(expected, Methods.IsSortedAndHow(array));
+        }
+
+        [TestCase("camelCasing", "camel Casing")]
+        [TestCase("camelCasingTest", "camel Casing Test")]
+
+        //https://www.codewars.com/kata/5208f99aee097e6552000148/train/csharp
+        public void BreakCamelCase_Test(string str, string expected)
+        {
+            Assert.AreEqual(expected, Methods.BreakCamelCase(str));
+        }
+
+        [TestCase("vert", "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu", "QHdgSh\noaMDnH\nXxNNlC\nHxxvRi\nAvVTqb\nuRySvw")]
+        [TestCase("vert", "IzOTWE\nkkbeCM\nWuzZxM\nvDddJw\njiJyHF\nPVHfSx", "EWTOzI\nMCebkk\nMxZzuW\nwJddDv\nFHyJij\nxSfHVP")]
+        [TestCase("hor", "lVHt\nJVhv\nCSbg\nyeCt", "yeCt\nCSbg\nJVhv\nlVHt")]
+        [TestCase("hor", "njMK\ndbrZ\nLPKo\ncEYz", "cEYz\nLPKo\ndbrZ\nnjMK")]
+
+
+        //https://www.codewars.com/kata/moves-in-squared-strings-i/train/csharp
+        public void Mirrors_Test(string type, string str, string expected)
+        {
+            if (type == "vert")
+                Assert.AreEqual(expected, Methods.Mirror(Methods.VertMirror, str));
+            if (type == "hor")
+                Assert.AreEqual(expected, Methods.Mirror(Methods.HorMirror, str));
         }
     }
 }

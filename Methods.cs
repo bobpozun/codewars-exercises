@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     internal class Methods
     {
@@ -106,6 +107,63 @@
                 }
             }
             return views;
+        }
+
+        internal static int CountTheDigit(int n, int d)
+        {
+            // Clean solution https://www.codewars.com/kata/reviews/566fc84f22fc21b3d500002f/groups/567017d585be37de8900000d
+            var counter = 0;
+            for (var x = 0; x <= n; x++)
+                counter += (x*x).ToString().Count(y => y.ToString() == d.ToString());
+            return counter;
+        }
+
+        internal static string IsSortedAndHow(int[] array)
+        {
+            // Clean solution https://www.codewars.com/kata/reviews/580a66039e05ded5c400001d/groups/580a6604879a1ad628000043
+            var asc = true;
+            var desc = true;
+            for (var x = 0; x < array.Length; x++)
+                if (x < array.Length - 1)
+                {
+                    if (desc && array[x] >= array[x + 1])
+                        asc = false;
+                    else if (asc && array[x] <= array[x + 1])
+                        desc = false;
+                    else
+                    {
+                        asc = false;
+                        desc = false;
+                    }
+                }
+            return asc ? "yes, ascending" : desc ? "yes, descending" : "no";
+        }
+
+        internal static string BreakCamelCase(string str)
+        {
+            return string.Join(' ', Regex.Split(str, @"(?<!^)(?=[A-Z])"));
+        }
+
+        internal static string VertMirror(string strng)
+        {
+            var items = new List<string>();
+            foreach (var item in strng.Split('\n'))
+            {
+                var i = item.ToCharArray();
+                Array.Reverse(i);
+                items.Add(string.Concat(i));
+            }
+            return string.Join('\n', items.ToArray()); ;
+        }
+
+        internal static string HorMirror(string strng)
+        {
+            return string.Join('\n', strng.Split('\n').Reverse()) ;
+        }
+
+        internal static string Mirror(Func<string, string> fct, string s)
+        {
+            return fct(s);
         }
     }
 }
