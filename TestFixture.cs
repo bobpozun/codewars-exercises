@@ -167,6 +167,21 @@
             Assert.That(Methods.IsAnagram(test, original), Is.EqualTo(expected));
         }
 
+        [TestCase(0, 0)]
+        [TestCase(1, 5)]
+        [TestCase(3, 5)]
+        [TestCase(5, 5)]
+        [TestCase(7, 10)]
+        [TestCase(39, 40)]
+
+        //https://www.codewars.com/kata/round-to-the-next-multiple-of-5/train/csharp
+        public void Next5_Test(int n, int expected)
+        {
+            Assert.AreEqual(Methods.RoundToNext5(n), expected);
+        }
+
+
+
         [TestCase()]
 
         //https://www.codewars.com/kata/

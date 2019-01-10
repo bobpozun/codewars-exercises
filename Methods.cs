@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Cryptography.X509Certificates;
     using System.Text.RegularExpressions;
 
     internal class Methods
@@ -168,7 +169,14 @@
 
         internal static bool IsAnagram(string test, string original)
         {
-            return string.Concat(test.ToLower().OrderBy(c => c)) == string.Concat(original.ToLower().OrderBy(s => s));
+            return string.Concat(test.ToLower().OrderBy(t => t)) == string.Concat(original.ToLower().OrderBy(o => o));
+        }
+
+        internal static int RoundToNext5(int n)
+        {
+            while (n % 5 != 0)
+                n += 1;
+            return n;
         }
     }
 }
